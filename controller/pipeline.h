@@ -1,12 +1,19 @@
 #pragma once
 #include <string>
+#include <functional>
 
 namespace Pipeline {
 
-    // Run analysis on the user's codebase
-    void runAnalysis(const std::string& projectPath);
+    struct AnalysisCallbacks {
+        std::function<void(const std::string& functionName)> onFunction;
+        std::function<void(const std::string& loopType)> onLoop;
+        std::function<void(const std::string& branchType)> onBranch;
+    };
 
-    // Generate reports in a user-specified folder
+    // Run analysis using parser-driven callbacks
+    void runAnalysis(const std::string& projectPath, AnalysisCallbacks callbacks);
+
+    // Generate reports into user-specified folder
     void generateReport(const std::string& outputPath);
 
 }
