@@ -8,15 +8,30 @@ namespace Pipeline {
 
 namespace StaticAnalyzer {
 
-    struct FunctionMetrics {
-        std::string filePath;
-        std::string functionName;
-        int loops = 0;
-        int branches = 0;
-    };
+/**
+ * FunctionMetrics:
+ * ----------------
+ * Aggregates metrics per function for large files.
+ * Focus is on functions that are big or executed frequently.
+ */
+struct FunctionMetrics {
+    std::string filePath;
+    std::string functionName;
+    int lineCount = 0;
+    int loops = 0;
+    int branches = 0;
+    int duplicateComputations = 0;
+    int unusedParameters = 0;
+};
 
-    extern std::vector<FunctionMetrics> staticResults;
+// All analyzed functions
+extern std::vector<FunctionMetrics> staticResults;
 
-    void parseFile(const std::string& filePath, const Pipeline::AnalysisCallbacks& callbacks);
+/**
+ * Parses a single C++ file.
+ * Uses function-level aggregation for loops, branches, and variables.
+ * Calls callbacks for hot/cold classification and optimization hints.
+ */
+void parseFile(const std::string& filePath, const Pipeline::AnalysisCallbacks& callbacks);
 
 }
