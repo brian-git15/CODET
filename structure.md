@@ -1,7 +1,6 @@
 /CODET
   /api
     serial_server.cpp      # Handles serial/CLI commands
-    routes.cpp             # Maps endpoints to modules
   /controller
     pipeline.cpp           # Orchestrates analysis → profiling → optimization
   /analysis
