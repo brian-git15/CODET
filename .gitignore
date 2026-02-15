@@ -1,0 +1,60 @@
+# -----------------------------
+# Compiled object files
+# -----------------------------
+*.o
+*.obj
+*.lo
+*.la
+*.al
+*.a
+*.so
+*.dll
+*.dylib
+*.exe
+
+# -----------------------------
+# Build directories
+# -----------------------------
+/build/
+/bin/
+/Debug/
+/Release/
+
+# -----------------------------
+# Generated reports (in-place)
+# -----------------------------
+# Ignore all analysis/report outputs
+**/*_report.json
+**/*_report.csv
+**/*_report.txt
+
+# -----------------------------
+# Temporary files / IDE
+# -----------------------------
+*.swp
+*.swo
+*.tmp
+*.log
+*.bak
+*.DS_Store
+
+# -----------------------------
+# VSCode / CLion / IDE config
+# -----------------------------
+.vscode/
+.idea/
+*.code-workspace
+
+# -----------------------------
+# Python caches (if any scripts used)
+# -----------------------------
+__pycache__/
+*.pyc
+*.pyo
+
+# -----------------------------
+# Other generated files
+# -----------------------------
+*.gcda
+*.gcno
+*.prof

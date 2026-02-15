@@ -3,15 +3,13 @@
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
-        std::cout << "Usage: codet_cli <project_path>\n";
+        std::cout << "Usage: codet <project_path> <dst-fil>\n";
         return 1;
     }
 
     std::string project_path = argv[1];
-    std::cout << "Analyzing project: " << project_path << "\n";
-    
-    PipelineWrapper::analyzeProject(project_path);
+    std::string dst_file = argv[2];
 
-    std::cout << "Analysis complete. Reports are in /reports\n";
+    PipelineWrapper::analyzeProject(project_path);
     return 0;
 }
