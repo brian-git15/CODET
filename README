@@ -1,0 +1,26 @@
+# Embedded C/C++ Situational Optimizer
+
+This project is a tool designed to analyze and optimize C/C++ code for embedded real-time systems (RTOS, microcontrollers, SoCs). Its main focus is on identifying **hot and cold code paths** and applying **situational optimizations** to improve performance while maintaining real-time constraints.
+
+## Key Features (First Half)
+
+1. **Static Analysis**
+   - Parses the source code to extract the AST, detect loops, branches, nested conditionals, tasks, and ISRs.
+   - Builds call graphs and module/class mappings to identify execution relationships.
+
+2. **Instrumentation & Profiling**
+   - Injects lightweight counters for loops, functions, and branches.
+   - Measures runtime execution frequency and timing for tasks, ISRs, and critical loops.
+   - Designed for **minimal overhead** to preserve real-time deadlines.
+
+3. **Hot/Cold Path Analysis**
+   - Uses runtime metrics to classify code paths:
+     - **Hot paths:** frequently executed tasks, loops, and functions that are performance-critical.
+     - **Cold paths:** rarely executed code such as error handling, logging, or infrequent tasks.
+   - Provides insights into which paths should be prioritized for optimizations.
+
+4. **Situational Optimization Preparation**
+   - Generates data that guides subsequent optimizations such as branch prediction hints (`likely/unlikely`), loop restructuring, function inlining, and hot/cold data placement.
+   - Ensures that optimizations respect **timing and memory constraints** in embedded systems.
+
+> This first half of the tool focuses on **analyzing the code, collecting runtime metrics, and mapping hot/cold paths**. Later stages will use this data to automatically suggest and apply optimizations specific to embedded targets.
