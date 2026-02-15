@@ -10,6 +10,6 @@ int main(int argc, char* argv[]) {
     std::string project_path = argv[1];
     std::string dst_file = argv[2];
 
-    PipelineWrapper::analyzeProject(project_path);
+    PipelineWrapper::analyzeProject(project_path, dst_path);
     return 0;
 }
